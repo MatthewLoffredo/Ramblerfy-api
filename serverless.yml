@@ -1,0 +1,20 @@
+# serverless.yml
+
+service: ramblerfy-api
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: prod
+  region: us-east-2
+
+plugins:
+  - serverless-offline
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http:
+          path: tracks
+          method: post
